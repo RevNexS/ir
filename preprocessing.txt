@@ -1,0 +1,43 @@
+Aim :- Write a program for Pre-processing of a Text Document: stop word removal.
+
+Code :-
+
+Program 1 :-
+
+Stopwords1.py
+
+import nltk
+from nltk.corpus import stopwords
+nltk.download('stopwords')
+from nltk.tokenize import word_tokenize
+text = "Nick likes to play football, however he is not too fond of tennis."
+text_tokens = word_tokenize(text)
+tokens_without_sw = [word for word in text_tokens if not word in stopwords.words()]
+print(tokens_without_sw)
+
+
+Output :-
+
+['Nick', 'likes', 'play', 'football', ',', 'however', 'fond', 'tennis', '.']
+
+
+Program 2 :-
+
+Stopwords2.py
+
+import io
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+stop_words = set(stopwords.words('english'))
+file1 = open("file1.txt")
+line = file1.read()
+words = line.split()
+for r in words:
+ if not r in stop_words:
+ appendFile = open('filteredtext.txt','a')
+ appendFile.write(" "+r)
+ appendFile.close()
+
+file1.txt
+
+filteredtext.txt
